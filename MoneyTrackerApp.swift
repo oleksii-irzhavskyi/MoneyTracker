@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 @main
 struct MoneyTrackerApp: App {
@@ -14,6 +15,9 @@ struct MoneyTrackerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
         }
         .modelContainer(for: [Transaction.self])
     }
